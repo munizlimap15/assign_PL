@@ -3,10 +3,10 @@
 ## Visualizations
 
 ### Global Production Volume
-![Global Production Volume](global_production_volume.png)
+![Global Production Volume](ggViz.png)
 
 ### Nitrogen Output in Harvested Wheat Yield
-![Nitrogen Output](nitrogen_output.png)
+![Nitrogen Output](nitrogen_output.tif)
 
 ### Nitrogen Outputs X Losses for the Top Ten Wheat Producers
 ![Nitrogen Outputs X Losses](N_outputs_losses.png)
