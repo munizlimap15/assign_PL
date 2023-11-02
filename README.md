@@ -6,9 +6,7 @@
 
 
 ## Author
-
-### Universität Wien
-- **Pedro Lima** - *Initial work* - [Email](mailto:pedro.lima@univie.ac.at)
+- **Pedro Lima** - *Initial work* - [Email](mailto:pedrohe@gmail.com)
 - Institut für Geographie und Regionalforschung
 - Universitätsstrasse 7, 1010 Wien, AT
 - [Private Website](https://munizlimap15.github.io/Pedrolima/)  
