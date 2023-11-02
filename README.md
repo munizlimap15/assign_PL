@@ -1,7 +1,7 @@
 # Assignment
 
 ## How to clone repository with Git
-    git clone https://github.com/munizlimap15/MoNEW_2023.git
+    git clone 
 
 
 
