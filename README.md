@@ -5,7 +5,6 @@
 ### Global Production Volume
 ![Global Production Volume](ggViz.png)
 
-
 ### Nitrogen Outputs X Losses for the Top Ten Wheat Producers
 ![Nitrogen Outputs X Losses](N_outputs_losses.png)
 
