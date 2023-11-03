@@ -11,11 +11,11 @@ library(rgdal)
 library(sp)  
 library(sf) 
 library(tidyverse)  
-library(mapview)    
 library(rgeos)
-library(exactextractr)
+library(exactextractr) # Alternative to raster::extract
 library(cowplot)
-library(countrycode)
+library(countrycode) # This one is for managing mismatching names in tables
+library(mapview)     # Dynamic Viz
 # Load the SPAM raster data
 #Accorsingto the ReadMe_Global_v3.2.txt doccumentation:
 #*_A_*		physical area
@@ -45,14 +45,14 @@ identical(res_area, res_yield) && identical(res_yield, res_harvested)
 identical(ext_area, ext_yield) && identical(ext_yield, ext_harvested)
 
 ################################################
-#Assuming that the production is the area ("unit of area harvested fields = ha") multiplied by the yield (According with the doccumentation, )....
+#Assuming that the production (yield) is the area ("unit of area harvested fields = ha") multiplied by the yield....
+#Assuming yield is given in tons per hectare and the area in hectares
+
 # Calculate production volume in tons
 prod_tons <- raster_area * raster_yield
-
 # Convert production volume to million tons (Mt)
-# 1 ton = 1,000 kg
 # 1 million tons = 1,000,000 tons
-prod_m_tons <- prod_tons / 1000000000
+prod_m_tons <- prod_tons / 1000000
 
 
 plot(prod_m_tons, main="Global Production Volume (in Mt)")
@@ -75,17 +75,18 @@ summary(as.factor(gaul$ADM0_NAME))
 # prod_m_tons <- raster("prod_m_tons.tif")
 
 # Aggregate production to country level using the shapefile
-#production_country <- raster::extract(prod_m_tons, gaul_countries, fun=sum, na.rm=TRUE) # Time sonsuming. Alternative below. 
+#production_country <- raster::extract(prod_m_tons, gaul, fun=sum, na.rm=TRUE) # Time sonsuming. Alternative below. 
 production_sub_country <- exactextractr::exact_extract(prod_m_tons, gaul, fun="sum")
 
 # Convert the list to a data frame
 production_df <- data.frame(
   ADM0_NAME = gaul$ADM0_NAME,
-  Production_mt = production_country)
+  Production_mt = production_sub_country)
 
 # Group by country name and summarize
 production_country <- production_df %>%
   group_by(ADM0_NAME) %>%
+  rename(Country = ADM0_NAME ) %>% 
   summarise(Production_mt = sum(Production_mt, na.rm = TRUE))
 
 # Export the results to a CSV file
@@ -104,17 +105,17 @@ write.csv(production_country, "production_country.csv", row.names=FALSE)
 
 # Calculate the nitrogen content raster
 # Since 2% of the wheat yield is nitrogen, we multiply the production raster by 0.02
-nitrogen_0.2_raster <- prod_m_tons * 0.02
+nitrogen_0.2_raster <- prod_m_tons * 0.02 #2%
 
 # Plot the nitrogen raster
 plot(nitrogen_0.2_raster, main="Nitrogen Output in Harvested Wheat Yield")
 
-# GGplot2 viz
+# Some GGplot2 viz.while I wait the raster::extract() function or find another solution...  
 # Convert the raster to a data frame
 nitrogen_df <- as.data.frame(nitrogen_0.2_raster, xy = TRUE)
 # Replace NA values with NA (which is redundant but ensures NAs are transparent)
 nitrogen_df$layer[is.na(nitrogen_df$prod_m_tons)] <- NA
-# Use ggplot to plot the data
+
 p=ggplot() +
   geom_raster(data = nitrogen_df, aes(x = x, y = y, fill = layer)) +
   scale_fill_viridis_c(na.value = NA) + # Set NA values to be transparent
@@ -133,6 +134,12 @@ while (!is.null(dev.list()))  dev.off()
 # Export the nitrogen raster to a GeoTIFF file
 writeRaster(nitrogen_0.2_raster, filename="nitrogen_output.tif", format="GTiff", overwrite=TRUE)
 
+#Among the top wheat producers, China leads in nitrogen productivity but with a low nitrogen use efficiency (NUE) of 0.26, 
+#suggesting higher potential for environmental loss. In contrast, France shows a balance between high productivity and a
+# higher NUE of 0.74, indicating more sustainable nitrogen usage. 
+#The efficiency spectrum is broad, with countries like Kazakhstan and the Republic of Moldova achieving high NUE, 
+#while the United Arab Emirates and Kuwait are at the lower end.
+
 
 ################################################
 ################################################
@@ -150,7 +157,7 @@ prod_by_country <- read.csv("production_country.csv")
 # The "countrycode" library might help. I will create a second field called "country2"
 
 Zhang_data$country2      <- countrycode(Zhang_data$Country,      "country.name", "iso3c")
-prod_by_country$country2 <- countrycode(prod_by_country$ADM0_NAME, "country.name", "iso3c")
+prod_by_country$country2 <- countrycode(prod_by_country$Country, "country.name", "iso3c")
 
 merged_data <- merge(prod_by_country, Zhang_data, by.x = "country2", by.y = "country2")
 # Basically, the NUE determines how efficient the N is being used. 
@@ -194,3 +201,4 @@ ggplot(merged_data, aes(x = reorder(country2, N_loss), y = N_output, fill = "Out
 ggsave("N_outputs_losses.pdf", width = 11, height = 8, units = "in")
 # Export the plot as a Png
 ggsave("N_outputs_losses.png", width = 11, height = 8, units = "in")
+

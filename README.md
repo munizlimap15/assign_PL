@@ -5,8 +5,6 @@
 ### Global Production Volume
 ![Global Production Volume](ggViz.png)
 
-### Nitrogen Output in Harvested Wheat Yield
-![Nitrogen Output](nitrogen_output.tif)
 
 ### Nitrogen Outputs X Losses for the Top Ten Wheat Producers
 ![Nitrogen Outputs X Losses](N_outputs_losses.png)
@@ -60,6 +58,7 @@ The analysis was performed using R and the following libraries:
 - `exactextractr`
 - `cowplot`
 - `countrycode`
+- `classInt`
 
 ## Repository Structure
 - `data/`: Directory containing raw data files.
