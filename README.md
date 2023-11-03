@@ -12,16 +12,16 @@
 Among the top wheat producers, China leads in nitrogen productivity but with a low nitrogen use efficiency (NUE) of 0.26, suggesting higher potential for environmental loss. In contrast, France shows a balance between high productivity and a higher NUE of 0.74, indicating more sustainable nitrogen usage. The efficiency spectrum is broad, with countries like Kazakhstan and the Republic of Moldova achieving high NUE, while the United Arab Emirates and Kuwait are at the lower end.
 | Rank | Country                | Production (Mt) | NUE    | N Output | N Input  | N Loss  |
 |------|------------------------|-----------------|--------|----------|----------|---------|
-| 1    | China                  | 63.39           | 0.262  | 1.268    | 4.832    | 3.565   |
-| 2    | United States of America | 49.03         | 0.508  | 0.981    | 1.930    | 0.950   |
-| 3    | India                  | 46.14           | 0.250  | 0.923    | 3.692    | 2.770   |
-| 4    | Russian Federation     | 46.06           | 0.619  | 0.921    | 1.489    | 0.567   |
-| 5    | France                 | 37.16           | 0.742  | 0.743    | 1.002    | 0.259   |
-| 6    | Canada                 | 25.26           | 0.503  | 0.505    | 1.004    | 0.498   |
-| 7    | Germany                | 23.68           | 0.459  | 0.474    | 1.033    | 0.559   |
-| 8    | Pakistan               | 20.82           | 0.200  | 0.416    | 2.084    | 1.667   |
-| 9    | Turkey                 | 20.77           | 0.423  | 0.415    | 0.983    | 0.568   |
-| 10   | Australia              | 18.64           | 0.541  | 0.373    | 0.689    | 0.316   |
+| 1    | China                  | 63392.75        | 0.262  | 1267.85  | 4832.36  | 3564.51 |
+| 2    | United States of America | 49028.58      | 0.508  | 980.57   | 1930.30  | 949.73  |
+| 3    | India                  | 46141.22        | 0.250  | 922.82   | 3692.47  | 2769.64 |
+| 4    | Russian Federation     | 46055.19        | 0.619  | 921.10   | 1488.56  | 567.46  |
+| 5    | France                 | 37159.58        | 0.742  | 743.19   | 1001.80  | 258.60  |
+| 6    | Canada                 | 25264.43        | 0.503  | 505.29   | 1003.79  | 498.50  |
+| 7    | Germany                | 23678.97        | 0.459  | 473.58   | 1032.65  | 559.07  |
+| 8    | Pakistan               | 20818.50        | 0.200  | 416.37   | 2083.51  | 1667.14 |
+| 9    | Turkey                 | 20770.74        | 0.423  | 415.41   | 983.05   | 567.63  |
+| 10   | Australia              | 18640.56        | 0.541  | 372.81   | 689.26   | 316.45  |
 
 ### TASK 5
 Many of the BNR's models, such as GLOBIOM and EPIC-IIASA, could benefit from the insights taken from the analysis of Nitrogen use efficiency and loss to enhance the sustainability of agricultural practices. By integrating data on nitrogen management, these models can guide the development of agricultural strategies (crop management practices) that minimize environmental harm, particularly from excessive fertilizer use, which can lead to water/landscape contamination (eutrophication), finally leading to increased greenhouse gas emissions.
