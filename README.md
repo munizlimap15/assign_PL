@@ -36,32 +36,93 @@ Many of the BNR's models, such as GLOBIOM and EPIC-IIASA, could benefit from the
 ## How to clone repository with Git
     git clone https://github.com/munizlimap15/assign_PL.git
 
+## Software Dependencies
+- **Operating System**: Compatible with Windows, macOS, and Linux.
+- **R Version**: 4.1.1 (2021-08-10)
+- **The analysis was performed using R and the following libraries:**:
+  - `raster`
+  - `rgdal`
+  - `sp`
+  - `sf`
+  - `tidyverse`
+  - `rgeos`
+  - `exactextractr`
+  - `cowplot`
+  - `countrycode`
+  - `mapview`
+  - `ggplot2` (included in `tidyverse`)
+  - `viridis` (for color scales, if not included in your `tidyverse` version)
+
+
+## sessionInfo()
+R version 4.1.1 (2021-08-10)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 22621)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252 LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] htmlwidgets_1.6.2 mapview_2.9.0     sp_1.4-5         
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.7              compiler_4.1.1          pillar_1.9.0           
+ [4] base64enc_0.1-3         class_7.3-19            tools_4.1.1            
+ [7] digest_0.6.27           tibble_3.2.1            satellite_1.0.2        
+[10] lifecycle_1.0.3         lattice_0.20-44         pkgconfig_2.0.3        
+[13] png_0.1-7               rlang_1.1.0             DBI_1.1.1              
+[16] cli_3.6.1               rstudioapi_0.14         crosstalk_1.1.1        
+[19] fastmap_1.1.0           e1071_1.7-8             dplyr_1.1.2            
+[22] raster_3.4-13           leaflet.providers_1.9.0 generics_0.1.0         
+[25] vctrs_0.6.1             webshot_0.5.5           tidyselect_1.2.0       
+[28] stats4_4.1.1            classInt_0.4-3          leaflet_2.0.4.1        
+[31] grid_4.1.1              glue_1.6.2              sf_1.0-2               
+[34] R6_2.5.1                fansi_1.0.3             farver_2.1.1           
+[37] magrittr_2.0.3          scales_1.2.1            codetools_0.2-18       
+[40] htmltools_0.5.5         units_0.7-2             colorspace_2.0-3       
+[43] utf8_1.2.2              KernSmooth_2.23-20      proxy_0.4-26           
+[46] munsell_0.5.0           leafem_0.1.6           
+
+
+
+## Repository Structure
+- `data/`: Directory containing raw data files.
+
+## Data Files
+- SPAM Raster Data: Located in `data/SPAM_2005_v3.2/`
+- GAUL Shapefile: Located in `data/GAUL/`
+- Nitrogen Use Efficiency Data: Located in `data/NUE_Zhang_et_al_2015/`
+
+
+## Reproduction Steps
+1. Install R and all required packages.
+2. Place all data files in the specified directories.
+3. Run the R script section by section, following the task comments.
+4. Ensure your R session has sufficient memory available for raster operations.
+5. Output files will be saved in the working directory.
+
+## Troubleshooting
+- If you encounter memory issues, try increasing R's memory limit or use a machine with more RAM.
+- Ensure country names are standardized across datasets to avoid merge issues.
+- Check the versions of the packages if there are function-related errors.
+
+
 ## Author
-- **Pedro Lima** - *Initial work* - [Email](mailto:pedrohe@gmail.com)
+- **Pedro Lima** - [Email](mailto:pedrohe@gmail.com)
 - Institut für Geographie und Regionalforschung
 - Universitätsstrasse 7, 1010 Wien, AT
 - [Private Website](https://munizlimap15.github.io/Pedrolima/)  
 - [Website](http://geomorph.univie.ac.at/)
 
-### Date: Nov/2nd/2023
-
-## Tools and Libraries
-The analysis was performed using R and the following libraries:
-- `raster`
-- `rgdal`
-- `sp`
-- `sf`
-- `tidyverse`
-- `mapview`
-- `rgeos`
-- `exactextractr`
-- `cowplot`
-- `countrycode`
-- `classInt`
-
-## Repository Structure
-- `data/`: Directory containing raw data files.
-
 ## Contact
 For any questions or issues related to this repository, please contact:
 - Pedro Lima: [pedrohe@gmail.com](mailto:pedrohe@gmail.com)
+
+### Date: Nov/2nd/2023
