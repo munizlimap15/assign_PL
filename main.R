@@ -5,6 +5,9 @@
 # Date: Nov/2nd/2023
 # Objective: Manipulate and analyze spatial datasets to generate indicators of environmental impacts associated with wheat production.
 
+#sessionInfo()
+#R version 4.1.1 (2021-08-10) Platform: x86_64-w64-mingw32/x64 (64-bit) Running under: Windows 10 x64 (build 22621)
+
 # Load necessary libraries
 library(raster)       
 library(rgdal)      
