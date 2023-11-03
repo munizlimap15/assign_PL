@@ -104,7 +104,7 @@ loaded via a namespace (and not attached):
 ## Reproduction Steps
 1. Install R and all required packages.
 2. Place all data files in the specified directories.
-3. Run the R script section by section, following the task comments.
+3. Run the R script (named as "Main.R")section by section, following the task comments.
 4. Ensure your R session has sufficient memory available for raster operations.
 5. Output files will be saved in the working directory.
 
@@ -125,4 +125,4 @@ loaded via a namespace (and not attached):
 For any questions or issues related to this repository, please contact:
 - Pedro Lima: [pedrohe@gmail.com](mailto:pedrohe@gmail.com)
 
-### Date: Nov/2nd/2023
+### Date: Nov/3rd/2023
